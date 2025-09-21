@@ -56,17 +56,17 @@ Interactive docs → http://localhost:8000/docs
 
 ⚙️ How It Works (Processing Flow)
 
-Client Request → Send file(s) via /upload/ endpoint.
+- Client Request → Send file(s) via /upload/ endpoint.
 
-FastAPI Endpoint (main.py) → Validates request using Pydantic schemas.
+- FastAPI Endpoint (main.py) → Validates request using Pydantic schemas.
 
-Data Processing → Extracts metadata, reads content, applies transformations.
+- Data Processing → Extracts metadata, reads content, applies transformations.
 
-Database Interaction (database.py, models.py) → Data converted into ORM objects.
+ - Database Interaction (database.py, models.py) → Data converted into ORM objects.
 
-Transaction Commit → Records saved into PostgreSQL. Rollback on failure.
+- Transaction Commit → Records saved into PostgreSQL. Rollback on failure.
 
-Response → Returns saved data to client with 200 OK or 201 Created.
+- Response → Returns saved data to client with 200 OK or 201 Created.
 
 📡 Usage
 Run the API inside Docker
@@ -93,22 +93,22 @@ Upload Multiple Documents
 
 🐳 Orchestration with Docker
 
-db service → PostgreSQL instance.
+- db service → PostgreSQL instance.
 
-api service → FastAPI container (depends on db).
+- api service → FastAPI container (depends on db).
 
-wait-for-it.sh → Ensures DB is ready before API starts.
+- wait-for-it.sh → Ensures DB is ready before API starts.
 
-start-api.sh → Runs DB migrations (if any) & launches Uvicorn server.
+- start-api.sh → Runs DB migrations (if any) & launches Uvicorn server.
 
 
 📜 API Documentation
 
 Once running, visit:
 
-Swagger UI → http://localhost:8000/docs
+1. Swagger UI → http://localhost:8000/docs
 
-ReDoc → http://localhost:8000/redoc
+2. ReDoc → http://localhost:8000/redoc
 
 
 🤝 Contributing
