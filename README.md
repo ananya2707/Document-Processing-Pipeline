@@ -6,22 +6,7 @@ A **FastAPI-based application** designed to process and store document informati
 
 ## 📂 Project Structure
 
-DOC_PROCESSOR/
-├── app/
-│   ├── __init__.py
-│   ├── database.py       # Handles database connection and session management
-│   ├── main.py           # Main FastAPI application, defines API endpoints
-│   ├── models.py         # SQLAlchemy ORM models for database tables
-│   ├── schemas.py        # Pydantic schemas for data validation and serialization
-│   └── test_files/       # Directory for test documents
-├── .env                  # Environment variables configuration
-├── docker-compose.yml    # Orchestrates FastAPI & PostgreSQL services
-├── Dockerfile            # Builds the API Docker image
-├── flow.md               # Describes application flow
-├── requirements.txt      # Python dependencies
-├── start-api.sh          # Starts API inside container
-├── upload_many.sh        # Example script to upload multiple documents
-└── wait-for-it.sh        # Ensures DB is ready before API starts
+<img width="859" height="540" alt="Screenshot 2025-09-22 034137" src="https://github.com/user-attachments/assets/f6f992bd-53f5-46cb-a666-864e6d0acedb" />
 
 
 ---
@@ -50,7 +35,7 @@ DOC_PROCESSOR/
 ```bash
 git clone <your-repository-url>
 cd DOC_PROCESSOR
-
+```
 
 2️⃣ Configure Environment Variables
 
@@ -60,11 +45,11 @@ POSTGRES_USER=user
 POSTGRES_PASSWORD=password
 POSTGRES_DB=doc_processor_db
 DATABASE_URL=postgresql://user:password@db:5432/doc_processor_db
-
+```
 3️⃣ Build and Run with Docker Compose
 ```bash
 docker-compose up --build -d
-
+```
 API → http://localhost:8000
 Interactive docs → http://localhost:8000/docs
 
@@ -87,13 +72,15 @@ Response → Returns saved data to client with 200 OK or 201 Created.
 Run the API inside Docker
 ```bash
 ./start-api.sh
+```
 Upload a Document (via curl)
 ```bash
 curl -X POST -F "files=@/path/to/your/file.txt" http://localhost:8000/upload
 Upload Multiple Documents
+```
 ```bash
 ./upload_many.sh
-
+```
 
 | Component      | File(s)                            | Description                     |
 | -------------- | ---------------------------------- | ------------------------------- |
@@ -131,9 +118,9 @@ ReDoc → http://localhost:8000/redoc
 2. Create a feature branch:
 ```bash
 git checkout -b feature-name
-
+```
 3. Commit changes:
 ```bash
 git commit -m "Add new feature"
-
+```
 4. Push and open a Pull Request 🚀
